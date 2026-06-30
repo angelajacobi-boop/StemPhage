@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>STEMPhage | ELIACELL Investment Case</title>
+  <meta name="description" content="Editable STEMPhage / ELIACELL investor website for off-the-shelf macrophage therapies in solid tumors." />
+  <style>
+    :root{
+      --navy:#061b3a; --blue:#0ea6d8; --teal:#009d9a; --green:#26c281; --gold:#c58b21;
+      --ink:#0d1930; --muted:#5c6b80; --paper:#ffffff; --soft:#f6f9fc; --line:#dbe6ef;
+      --radius:28px; --shadow:0 18px 50px rgba(6,27,58,.12);
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:linear-gradient(180deg,#fff,#f4f8fc 55%,#fff);color:var(--ink);line-height:1.55}
+    body.editing [contenteditable="true"]{outline:2px dashed rgba(14,166,216,.45);outline-offset:4px;background:rgba(14,166,216,.05);border-radius:8px}
+    body.editing img.edit-img{outline:3px solid rgba(197,139,33,.5);cursor:pointer}
+    .toolbar{position:fixed;right:18px;bottom:18px;z-index:999;display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;max-width:720px}.toolbar button,.toolbar label{border:0;border-radius:999px;background:var(--navy);color:#fff;padding:11px 15px;font-weight:700;box-shadow:var(--shadow);cursor:pointer;font-size:14px}.toolbar .secondary{background:#fff;color:var(--navy);border:1px solid var(--line)}.toolbar input[type=file]{display:none}.edit-hint{position:fixed;left:18px;bottom:18px;z-index:999;background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px 14px;box-shadow:var(--shadow);font-size:13px;color:var(--muted);max-width:390px}.hidden{display:none!important}
+    header.hero{position:relative;overflow:hidden;background:radial-gradient(circle at 80% 20%,rgba(14,166,216,.22),transparent 28%),linear-gradient(135deg,#05152e,#08264e 60%,#0a3a67);color:#fff}.hero:before{content:"";position:absolute;inset:0;background:url('assets/team-overhead.png') no-repeat right -120px bottom -210px/760px;opacity:.16}.nav{position:relative;display:flex;align-items:center;justify-content:space-between;padding:26px clamp(22px,5vw,78px);gap:24px}.logo{display:flex;align-items:center;gap:18px}.logo img{width:280px;max-width:48vw;height:auto}.nav a{color:#d9eef7;text-decoration:none;margin-left:22px;font-weight:700}.hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:42px;align-items:center;padding:64px clamp(22px,5vw,78px) 86px}.eyebrow{display:inline-block;background:rgba(14,166,216,.24);border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:8px 14px;font-weight:800;color:#bdf1ff}.hero h1{font-size:clamp(38px,5.4vw,76px);line-height:1.02;margin:22px 0 16px;letter-spacing:-.04em}.subtitle{font-size:clamp(18px,2.2vw,25px);color:#d9e9f5;max-width:840px}.hero-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:var(--radius);padding:24px;backdrop-filter:blur(14px);box-shadow:var(--shadow)}.hero-card img{width:100%;border-radius:22px;display:block}.chips{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.chip{background:#10a9d8;color:#fff;border-radius:999px;padding:10px 14px;font-weight:800}.container{width:min(1480px,calc(100% - 44px));margin:auto}.section{padding:74px 0}.section-title{font-size:clamp(30px,3.5vw,52px);line-height:1.08;margin:0 0 18px;letter-spacing:-.03em}.section-kicker{color:var(--blue);font-weight:900;text-transform:uppercase;letter-spacing:.08em;font-size:13px}.lead{font-size:20px;color:var(--muted);max-width:920px}.grid{display:grid;gap:26px}.grid-3{grid-template-columns:repeat(3,1fr)}.grid-2{grid-template-columns:repeat(2,1fr)}.card{background:rgba(255,255,255,.84);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}.card h3{font-size:24px;margin:0 0 10px}.card h3:after{content:"";display:block;width:100%;height:4px;background:linear-gradient(90deg,var(--blue),var(--teal));margin-top:10px;border-radius:6px}.card.problem h3:after{background:linear-gradient(90deg,var(--teal),var(--green))}.card.solution h3:after{background:linear-gradient(90deg,var(--gold),#f2c35c)}ul{padding-left:20px;margin:12px 0 0}li{margin:8px 0}.platform{display:grid;grid-template-columns:1fr .95fr;gap:32px;align-items:center}.platform-img{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}.platform-img img{width:100%;display:block}.quote{font-size:28px;line-height:1.25;font-weight:900;color:var(--navy);padding:34px;background:linear-gradient(135deg,rgba(14,166,216,.1),rgba(38,194,129,.08));border-left:8px solid var(--blue);border-radius:24px}.timeline{position:relative;margin-top:38px;padding:30px 0 8px}.timeline:before{content:"";position:absolute;left:4%;right:4%;top:92px;height:8px;background:linear-gradient(90deg,var(--navy),var(--blue),var(--teal),var(--green));border-radius:999px}.milestones{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}.milestone{position:relative;text-align:center;padding-top:74px}.dot{position:absolute;top:44px;left:50%;transform:translateX(-50%);width:74px;height:74px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:900;font-size:18px;box-shadow:0 0 0 10px #fff, var(--shadow)}.milestone:nth-child(1) .dot{background:var(--navy)}.milestone:nth-child(3) .dot{background:var(--teal)}.milestone:nth-child(4) .dot{background:var(--green)}.milestone h3{margin:18px 0 8px;font-size:21px}.focus{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}.team-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:stretch}.team-photo{border-radius:var(--radius);overflow:hidden;min-height:520px;background:#0b1b32;box-shadow:var(--shadow)}.team-photo img{width:100%;height:100%;object-fit:cover;display:block}.founders{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.person{background:#fff;border:1px solid var(--line);border-radius:24px;padding:16px;text-align:center}.person img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:20px}.person h4{margin:12px 0 4px;font-size:18px}.gallery{display:grid;grid-template-columns:1.5fr 1fr 1fr;grid-auto-rows:240px;gap:18px}.gallery figure{margin:0;border-radius:24px;overflow:hidden;position:relative;background:#dfe8f0;box-shadow:var(--shadow)}.gallery figure:first-child{grid-row:span 2}.gallery img{width:100%;height:100%;object-fit:cover;display:block}.gallery figcaption{position:absolute;left:12px;right:12px;bottom:12px;background:rgba(6,27,58,.78);color:#fff;border-radius:14px;padding:9px 12px;font-weight:800;font-size:14px}.cta{background:linear-gradient(135deg,var(--navy),#073865);color:#fff;border-radius:38px;padding:48px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;box-shadow:var(--shadow)}.cta h2{font-size:42px;line-height:1.05;margin:0 0 14px}.cta p{color:#d9e9f5}.cta img{width:220px;max-width:100%;border-radius:18px;background:#fff;padding:12px}.footer{padding:36px 0;color:#6d7890;font-size:14px}.footer .container{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.editable-tools{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.color-tool{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px}.color-tool input{width:100%;height:36px;border:0;background:transparent}.image-input{display:none}.mini-note{font-size:13px;color:var(--muted)}
+    @media(max-width:980px){.hero-grid,.platform,.team-grid,.cta{grid-template-columns:1fr}.grid-3,.grid-2,.founders{grid-template-columns:1fr}.milestones{grid-template-columns:1fr}.timeline:before{display:none}.milestone{padding-top:0;text-align:left;padding-left:94px;min-height:90px}.dot{left:36px;top:0;transform:none}.gallery{grid-template-columns:1fr;grid-auto-rows:260px}.gallery figure:first-child{grid-row:auto}.nav{align-items:flex-start;flex-direction:column}.nav-links a{display:inline-block;margin:0 14px 8px 0}.hero:before{opacity:.08;background-size:620px}.toolbar{left:12px;right:12px}.edit-hint{display:none}}
+    @media print{.toolbar,.edit-hint{display:none}.section{padding:30px 0}.card,.hero-card,.team-photo,.gallery figure,.cta{box-shadow:none}body{background:#fff}}
+  </style>
+</head>
+<body>
+  <div class="toolbar" aria-label="Editing tools">
+    <button id="editToggle">Enable edit mode</button>
+    <button id="saveBtn" class="secondary">Save changes</button>
+    <button id="exportBtn" class="secondary">Export content</button>
+    <label class="secondary" for="importFile">Import content<input id="importFile" type="file" accept="application/json"></label>
+    <button id="resetBtn" class="secondary">Reset</button>
+  </div>
+  <div class="edit-hint hidden" id="editHint">Edit mode is on: click any text to rewrite it. Click an outlined image to replace it. Changes are stored locally in your browser.</div>
+
+  <header class="hero" id="home">
+    <nav class="nav">
+      <div class="logo"><img src="assets/stemphage-logo.png" alt="EU flag and STEMPhage logo" class="edit-img" data-img="logo"></div>
+      <div class="nav-links">
+        <a href="#platform">Platform</a><a href="#timeline">Roadmap</a><a href="#team">Team</a><a href="#investor">Investor case</a>
+      </div>
+    </nav>
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow" contenteditable="true" data-edit="eyebrow">Investment case · Ad-hoc available | Scalable | High-performing</span>
+        <h1 contenteditable="true" data-edit="hero-title">Innovation macrophage therapies to transform the treatment paradigm of solid tumors</h1>
+        <p class="subtitle" contenteditable="true" data-edit="hero-subtitle">Off-the-shelf cell therapy with platform potential — translating scientific breakthrough into investable value.</p>
+        <div class="chips">
+          <span class="chip" contenteditable="true" data-edit="chip-1">Off-the-shelf</span>
+          <span class="chip" contenteditable="true" data-edit="chip-2">Antigen-independent</span>
+          <span class="chip" contenteditable="true" data-edit="chip-3">Industrially scalable</span>
+        </div>
+      </div>
+      <div class="hero-card"><img src="assets/team-sofa.png" alt="STEMPhage team on sofa" class="edit-img" data-img="hero-team"></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="platform">
+      <div class="container platform">
+        <div>
+          <div class="section-kicker" contenteditable="true" data-edit="short-kicker">Short description</div>
+          <h2 class="section-title" contenteditable="true" data-edit="short-title">A novel macrophage platform for solid tumors</h2>
+          <p class="lead" contenteditable="true" data-edit="short-text">We are developing a ready-to-use allogeneic macrophage cell therapy for cancer: first-in-class, broad tumor specificity as it is antigen-independent, unique resistance to exhaustion within the tumor, and industrially scalable manufacturing.</p>
+          <div class="quote" contenteditable="true" data-edit="quote">A novel macrophage platform translates scientific breakthrough into investable value and eliminates key bottlenecks in today’s cell therapies for solid tumors.</div>
+        </div>
+        <div class="platform-img"><img src="assets/platform-flow.png" alt="Genetically modified iPSC to xMACx off-the-shelf therapy" class="edit-img" data-img="platform-flow"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid grid-3">
+        <article class="card problem">
+          <h3 contenteditable="true" data-edit="problem-title">The problem</h3>
+          <ul contenteditable="true" data-edit="problem-list">
+            <li>Cancer is the second leading cause of death worldwide.</li>
+            <li>Existing cell therapies are expensive and largely ineffective against solid tumors.</li>
+            <li>T-cells are antigen-dependent and rarely penetrate solid tumors.</li>
+            <li>Immune cells become exhausted within the tumor.</li>
+            <li>Macrophages are unable to proliferate.</li>
+          </ul>
+        </article>
+        <article class="card solution">
+          <h3 contenteditable="true" data-edit="solution-title">Solution</h3>
+          <p contenteditable="true" data-edit="solution-text">New xMACx macrophage cell therapy attacks solid tumors through a completely novel biological approach: metabolic enhancement, high proliferative capacity, resistance to exhaustion and persistent, stable anti-tumor effect at low cost.</p>
+          <img src="assets/Eliacell2.png" alt="ELIACELL icon" class="edit-img" data-img="eliacell-icon" style="max-width:170px;margin-top:16px">
+        </article>
+        <article class="card">
+          <h3 contenteditable="true" data-edit="market-title">Market potential / Business model</h3>
+          <ul contenteditable="true" data-edit="market-list">
+            <li>Unmet medical need</li>
+            <li>Large addressable oncology markets</li>
+            <li>Multiple indications and partnering pathways</li>
+            <li>Early-stage licensing agreements</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="timeline">
+      <div class="container">
+        <div class="section-kicker" contenteditable="true" data-edit="timeline-kicker">Milestones / Value-Creation Roadmap</div>
+        <h2 class="section-title" contenteditable="true" data-edit="timeline-title">From strong IP basis to First-in-Human readiness</h2>
+        <div class="timeline">
+          <div class="milestones">
+            <div class="milestone"><div class="dot" contenteditable="true" data-edit="year-2026">2026</div><h3 contenteditable="true" data-edit="m1-title">Today</h3><p contenteditable="true" data-edit="m1-text">Strong IP basis & iPSC-platform PoC</p></div>
+            <div class="milestone"><div class="dot" contenteditable="true" data-edit="year-2027">2027</div><h3 contenteditable="true" data-edit="m2-title">Spin-off</h3><p contenteditable="true" data-edit="m2-text">GMP MCB, scaling, regulatory and awareness marketing</p></div>
+            <div class="milestone"><div class="dot" contenteditable="true" data-edit="year-2028">2028</div><h3 contenteditable="true" data-edit="m3-title">Investor readiness</h3><p contenteditable="true" data-edit="m3-text">GMP validation, benchmarking and preparation of clinical trial</p></div>
+            <div class="milestone"><div class="dot" contenteditable="true" data-edit="year-2029">2029</div><h3 contenteditable="true" data-edit="m4-title">TRL5 / Seed</h3><p contenteditable="true" data-edit="m4-text">Investigational medicinal product and First-in-Human readiness</p></div>
+          </div>
+        </div>
+        <div class="card" style="margin-top:34px">
+          <h3 contenteditable="true" data-edit="focus-title">30 Month Focus</h3>
+          <div class="focus" contenteditable="true" data-edit="focus-list">
+            <ul><li>GMP Master cell bank</li><li>GMP validation</li><li>Preclinical de-risking</li></ul>
+            <ul><li>Process optimization</li><li>Scaling</li><li>Spin-off readiness</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="team">
+      <div class="container team-grid">
+        <div class="team-photo"><img src="assets/team-overhead.png" alt="STEMPhage team overhead" class="edit-img" data-img="team-overhead"></div>
+        <div>
+          <div class="section-kicker" contenteditable="true" data-edit="team-kicker">Team</div>
+          <h2 class="section-title" contenteditable="true" data-edit="team-title">Founder team and execution capability</h2>
+          <p class="lead" contenteditable="true" data-edit="team-text">Team of experts with practical experience from cell therapy companies in R&D/pipeline development, process/GMP development, in vivo testing and First-in-Human study design.</p>
+          <div class="founders">
+            <div class="person"><img src="assets/angela-jacobi.jpg" alt="Dr. Angela Jacobi" class="edit-img" data-img="angela"><h4 contenteditable="true" data-edit="angela-name">Dr. Angela Jacobi</h4><p contenteditable="true" data-edit="angela-role">Strategy & company building</p></div>
+            <div class="person"><img src="assets/anke-fuchs.jpg" alt="Dr. Anke Fuchs" class="edit-img" data-img="anke"><h4 contenteditable="true" data-edit="anke-name">Dr. Anke Fuchs</h4><p contenteditable="true" data-edit="anke-role">Science & translation</p></div>
+            <div class="person"><img src="assets/michael-sieweke.png" alt="Prof. Michael Sieweke" class="edit-img" data-img="michael"><h4 contenteditable="true" data-edit="michael-name">Prof. Michael Sieweke</h4><p contenteditable="true" data-edit="michael-role">Macrophage biology</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-kicker" contenteditable="true" data-edit="gallery-kicker">Assets & ecosystem</div>
+        <h2 class="section-title" contenteditable="true" data-edit="gallery-title">Scientific platform, team and stakeholder ecosystem</h2>
+        <div class="gallery">
+          <figure><img src="assets/founders-blue.jpg" alt="Founder team" class="edit-img" data-img="founders-blue"><figcaption contenteditable="true" data-edit="cap-founders">Founder team</figcaption></figure>
+          <figure><img src="assets/eic-transition.jpg" alt="EIC Transition logo" class="edit-img" data-img="eic"><figcaption contenteditable="true" data-edit="cap-eic">EIC Transition</figcaption></figure>
+          <figure><img src="assets/ecosystem-map.png" alt="Ecosystem stakeholder map" class="edit-img" data-img="ecosystem"><figcaption contenteditable="true" data-edit="cap-ecosystem">Advisory and stakeholder ecosystem</figcaption></figure>
+          <figure><img src="assets/team-sofa.png" alt="STEMPhage team" class="edit-img" data-img="team-sofa"><figcaption contenteditable="true" data-edit="cap-sofa">STEMPhage team</figcaption></figure>
+          <figure><img src="assets/platform-flow.png" alt="Platform workflow" class="edit-img" data-img="platform-small"><figcaption contenteditable="true" data-edit="cap-platform">xMACx platform workflow</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="investor">
+      <div class="container cta">
+        <div>
+          <h2 contenteditable="true" data-edit="investor-title">Investor opportunity</h2>
+          <p contenteditable="true" data-edit="investor-text">EIC Transition acts as non-dilutive capital to reach spin-off readiness, seed funding, strategic partnerships and licensing. Next step: early discussions with investors and sparring.</p>
+          <ul contenteditable="true" data-edit="investor-list">
+            <li>Readiness for spin-off</li>
+            <li>Seed funding</li>
+            <li>Strategic partnerships & licensing</li>
+          </ul>
+        </div>
+        <div>
+          <img src="assets/eic-transition.jpg" alt="EIC Transition" class="edit-img" data-img="cta-eic">
+          <div class="editable-tools">
+            <div class="color-tool"><strong>Primary</strong><input type="color" data-color="--navy" value="#061b3a"></div>
+            <div class="color-tool"><strong>Accent</strong><input type="color" data-color="--blue" value="#0ea6d8"></div>
+            <div class="color-tool"><strong>Green</strong><input type="color" data-color="--green" value="#26c281"></div>
+          </div>
+          <p class="mini-note" contenteditable="true" data-edit="edit-note">Use the editor buttons to save, export or import your customized site content.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container"><span contenteditable="true" data-edit="footer-left">© STEMPhage / ELIACELL</span><span contenteditable="true" data-edit="footer-right">Editable investor website · built from the provided investment case material</span></div>
+  </footer>
+
+  <input id="imageInput" type="file" accept="image/*" class="image-input" />
+
+  <script>
+    const STORAGE_KEY='stemphageEditableV2';
+    const COLOR_KEY='stemphageColorsV2';
+    const IMAGE_KEY='stemphageImagesV2';
+    const editableEls=[...document.querySelectorAll('[contenteditable][data-edit]')];
+    const imgEls=[...document.querySelectorAll('img[data-img]')];
+    const editToggle=document.getElementById('editToggle');
+    const editHint=document.getElementById('editHint');
+    const imageInput=document.getElementById('imageInput');
+    let activeImage=null;
+    function load(){
+      const data=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');
+      editableEls.forEach(el=>{ if(data[el.dataset.edit]!==undefined) el.innerHTML=data[el.dataset.edit]; });
+      const colors=JSON.parse(localStorage.getItem(COLOR_KEY)||'{}');
+      Object.entries(colors).forEach(([k,v])=>document.documentElement.style.setProperty(k,v));
+      document.querySelectorAll('[data-color]').forEach(input=>{ if(colors[input.dataset.color]) input.value=colors[input.dataset.color]; });
+      const imgs=JSON.parse(localStorage.getItem(IMAGE_KEY)||'{}');
+      imgEls.forEach(img=>{ if(imgs[img.dataset.img]) img.src=imgs[img.dataset.img]; });
+    }
+    function save(){
+      const data={}; editableEls.forEach(el=>data[el.dataset.edit]=el.innerHTML);
+      localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
+      const colors={}; document.querySelectorAll('[data-color]').forEach(input=>colors[input.dataset.color]=input.value);
+      localStorage.setItem(COLOR_KEY,JSON.stringify(colors));
+      editToggle.textContent='Saved ✓'; setTimeout(()=>editToggle.textContent=document.body.classList.contains('editing')?'Disable edit mode':'Enable edit mode',900);
+    }
+    editToggle.addEventListener('click',()=>{document.body.classList.toggle('editing'); const on=document.body.classList.contains('editing'); editToggle.textContent=on?'Disable edit mode':'Enable edit mode'; editHint.classList.toggle('hidden',!on); editableEls.forEach(el=>el.setAttribute('contenteditable',on?'true':'false'));});
+    document.getElementById('saveBtn').addEventListener('click',save);
+    editableEls.forEach(el=>el.addEventListener('input',()=>save()));
+    document.querySelectorAll('[data-color]').forEach(input=>input.addEventListener('input',e=>{document.documentElement.style.setProperty(input.dataset.color,input.value);save();}));
+    imgEls.forEach(img=>img.addEventListener('click',()=>{if(!document.body.classList.contains('editing')) return; activeImage=img; imageInput.click();}));
+    imageInput.addEventListener('change',()=>{const f=imageInput.files[0]; if(!f||!activeImage) return; const r=new FileReader(); r.onload=()=>{activeImage.src=r.result; const imgs=JSON.parse(localStorage.getItem(IMAGE_KEY)||'{}'); imgs[activeImage.dataset.img]=r.result; localStorage.setItem(IMAGE_KEY,JSON.stringify(imgs));}; r.readAsDataURL(f); imageInput.value='';});
+    document.getElementById('exportBtn').addEventListener('click',()=>{save(); const payload={text:JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}'),colors:JSON.parse(localStorage.getItem(COLOR_KEY)||'{}'),images:JSON.parse(localStorage.getItem(IMAGE_KEY)||'{}')}; const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='stemphage-website-content.json'; a.click(); URL.revokeObjectURL(a.href);});
+    document.getElementById('importFile').addEventListener('change',e=>{const f=e.target.files[0]; if(!f) return; const r=new FileReader(); r.onload=()=>{const payload=JSON.parse(r.result); if(payload.text) localStorage.setItem(STORAGE_KEY,JSON.stringify(payload.text)); if(payload.colors) localStorage.setItem(COLOR_KEY,JSON.stringify(payload.colors)); if(payload.images) localStorage.setItem(IMAGE_KEY,JSON.stringify(payload.images)); location.reload();}; r.readAsText(f);});
+    document.getElementById('resetBtn').addEventListener('click',()=>{if(confirm('Reset all local edits?')){localStorage.removeItem(STORAGE_KEY);localStorage.removeItem(COLOR_KEY);localStorage.removeItem(IMAGE_KEY);location.reload();}});
+    load(); editableEls.forEach(el=>el.setAttribute('contenteditable','false'));
+  </script>
+</body>
+</html>
